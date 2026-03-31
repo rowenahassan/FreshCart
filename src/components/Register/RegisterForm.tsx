@@ -13,11 +13,12 @@ import { registerSchema } from "@/schema/register.schema";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
 import { registerHandler } from "@/actions/auth.actions";
+import { Spinner } from "../ui/spinner";
 
 export default function RegisterForm() {
   const router = useRouter();
 
-  const { handleSubmit, control } = useForm<RegisterDataType>({
+  const { handleSubmit, control, formState:{isSubmitting} } = useForm<RegisterDataType>({
     defaultValues,
     resolver: zodResolver(registerSchema),
     mode: "onChange",
@@ -321,8 +322,13 @@ export default function RegisterForm() {
           </div>
           <Button
             type="submit"
+            disabled={isSubmitting}
             className="w-full h-10.5 bg-primary-600 text-white py-2 px-4 rounded-[8px] hover:bg-primary-700 transition-all duration-200 gap-2 font-semibold text-md disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
+            {isSubmitting ? (
+              <><Spinner className="size-6" />
+              <span>creating account...</span></>
+            ) : ( <>
             <svg
               width="20"
               height="16"
@@ -337,6 +343,7 @@ export default function RegisterForm() {
               />
             </svg>
             <span>Create My Account</span>
+            </> )}
           </Button>
         </form>
 
