@@ -1,9 +1,14 @@
 import { getUserOrders } from "@/actions/orders.actions";
 import OrderProductCard from "@/components/AllOrders/OrderProductCard";
+import { authOptions } from "@/next-auth/authOptions";
 import { OrdersType } from "@/types/order.types";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function AllOrders() {
+  const session = await getServerSession(authOptions)
+    if(!session) redirect('/login');
   const orders: OrdersType = (await getUserOrders() || []);
   
   return orders.length !== 0? (

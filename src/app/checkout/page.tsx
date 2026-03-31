@@ -4,10 +4,15 @@ import { getUserCart } from "@/actions/cart.actions";
 import { UserAddressesType } from "@/types/addresses.types";
 import { getUserAddresses } from "@/actions/addresses.actions";
 import { CartType } from "@/types/cart.types";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/next-auth/authOptions";
+import { redirect } from "next/navigation";
 interface checkoutProps {
   searchParams: Promise<{ id: string }>;
 }
 export default async function Checkout({ searchParams }: checkoutProps) {
+  const session = await getServerSession(authOptions)
+    if(!session) redirect('/login');
   const { id } = await searchParams;
   const cartItems: CartType = await getUserCart();
   const userAddresses: UserAddressesType = await getUserAddresses();
