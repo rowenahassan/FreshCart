@@ -131,7 +131,7 @@ export default async function Cart() {
                       <span className="text-gray-900 font-semibold">Total</span>
                       <div className="text-right">
                         <span className="text-2xl font-bold text-gray-900">
-                          {cartItems.data.totalCartPrice.toLocaleString()}
+                          {cartItems?.data?.totalCartPrice?.toLocaleString()}
                         </span>
                         <span className="text-sm text-gray-500 ml-1">EGP</span>
                       </div>
