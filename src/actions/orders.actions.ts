@@ -29,8 +29,8 @@ export async function createOrder(
     const result = await res.json();
 
     if (!res.ok) {
-      throw new Error(result.message || "Failed to create an order");
-    }
+          return {error : "Failed to create an order"};
+        }
     return result;
   } catch (error) {
     return error;
@@ -47,8 +47,8 @@ export async function getUserOrders() {
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || "Failed to get user orders");
-    }
+          return {error : "Failed to get user orders"};
+        }
     return data;
   } catch (error) {
     return error;

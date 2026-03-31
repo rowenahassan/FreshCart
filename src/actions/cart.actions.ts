@@ -22,7 +22,7 @@ export async function addToCart(productId: string) {
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || "Failed to add product to cart");
+      return {error : "Failed to add product to cart"};
     }
     return data;
   } catch (error) {
@@ -44,7 +44,7 @@ export async function getUserCart() {
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || "Failed to get user cart");
+      return {error : "Failed to get user cart"};
     }
     return data;
   } catch (error) {
@@ -70,7 +70,7 @@ export async function updateCartProductQuantity(productId: string , count: numbe
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || "Failed to update the quantity of the product");
+      return {error : "Failed to update the quantity of the product"};
     }
 
     if(res.ok){
@@ -98,7 +98,7 @@ export async function removeProductFromCart(productId: string) {
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || "Failed to remove product");
+      return {error : "Failed to remove product"};
     }
 
     if(res.ok){
@@ -126,7 +126,7 @@ export async function clearUserCart() {
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(data.message || "Failed to clear your cart");
+      return {error : "Failed to clear your cart"};
     }
 
     if(res.ok){

@@ -3,7 +3,7 @@ export async function getSubCategories() {
     const response = await fetch("https://ecommerce.routemisr.com/api/v1/subcategories");
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return {error : "Failed to get subcategories"};
     }
     const data = await response.json();
 
@@ -20,7 +20,7 @@ export async function getSpecificSubCategory(subcategoryId: string) {
     );
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return {error : "Failed to get subcategory"};
     }
     const data = await response.json();
 

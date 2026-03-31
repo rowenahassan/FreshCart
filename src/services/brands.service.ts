@@ -3,7 +3,7 @@ export async function getAllBrands() {
     const response = await fetch("https://ecommerce.routemisr.com/api/v1/brands");
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return {error : "Failed to get brands"};
     }
     const data = await response.json();
 
@@ -20,7 +20,7 @@ export async function getSpecificBrand(brandId: string) {
     );
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      return {error : "Failed to get brand"};
     }
     const data = await response.json();
 
