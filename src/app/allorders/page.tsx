@@ -62,7 +62,7 @@ export default async function AllOrders() {
           </div>
         </div>
         <div className="space-y-4">
-          {orders?.map((order)=> (
+          {orders?.length > 0 && orders?.map((order)=> (
           <OrderProductCard key={order._id} order={order} />
           ))}
         </div>
