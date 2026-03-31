@@ -26,7 +26,7 @@ export async function getAllProducts(
     );
 
     if (!response.ok) {
-      return {error : "Failed to get products"};
+      throw new Error(response.statusText);
     }
     const data = await response.json();
 
@@ -42,7 +42,7 @@ export async function getProductDetails(productId: string) {
     );
 
     if (!response.ok) {
-      return {error : "Failed to get product details"};
+      throw new Error(response.statusText);
     }
     const data = await response.json();
 

@@ -21,7 +21,7 @@ export async function addProductToWishlist(productId: string) {
     const data = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to add product to wishlist"};
+      throw new Error(data.message || "Failed to add product to wishlist");
     }
     return data;
   } catch (error) {
@@ -43,7 +43,7 @@ export async function getUserWishlist() {
     const data = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to get user wishlist"};
+      throw new Error(data.message || "Failed to get user wishlist");
     }
     return data;
   } catch (error) {
@@ -66,7 +66,7 @@ export async function removeProductFromWishlist(productId: string) {
     const data = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to remove product"};
+      throw new Error(data.message || "Failed to remove product");
     }
 
     if(res.ok){

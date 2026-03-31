@@ -21,7 +21,7 @@ export async function addAddress(data: AddAddressDataType) {
     const result = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to add address"};
+      throw new Error(result.message || "Failed to add product to wishlist");
     }
     
     return result;
@@ -44,7 +44,7 @@ export async function getUserAddresses() {
     const data = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to get user addresses"};
+      throw new Error(data.message || "Failed to get user addresses");
     }
     return data;
   } catch (error) {
@@ -67,7 +67,7 @@ export async function removeAddress(addressId: string) {
     const data = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to remove address"};
+      throw new Error(data.message || "Failed to remove address");
     }
 
     return data;

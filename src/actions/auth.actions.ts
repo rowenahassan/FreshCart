@@ -47,7 +47,7 @@ export async function registerHandler(data: LoginDataType) {
     const result = await response.json();
 
     if (!response.ok) {
-      return {error : "Failed to create account"};
+      throw new Error(result.message || "Registration failed");
     }
     const cookieStore = await cookies();
     cookieStore.set("token", result.token, {
@@ -124,7 +124,7 @@ export async function forgotPassword(data: { email: string }) {
     const result = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to send reset code"};
+      throw new Error(result.message || "Failed to send reset code");
     }
     return result;
   } catch (error) {
@@ -148,7 +148,7 @@ export async function verifyResetCode(data: { resetCode: string }) {
     const result = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to verify reset code"};
+      throw new Error(result.message || "Failed to verify reset code");
     }
     return result;
   } catch (error) {
@@ -172,7 +172,7 @@ export async function resetPassword(data: { email: string, newPassword: string }
     const result = await res.json();
 
     if (!res.ok) {
-      return {error : "Failed to reset password"};
+      throw new Error(result.message || "Failed to reset password");
     }
     return result;
   } catch (error) {

@@ -1,10 +1,16 @@
 import { getUserCart } from "@/actions/cart.actions";
 import ClearProductButton from "@/components/Cart/ClearProductButton/ClearProductButton";
 import ProductCardInCart from "@/components/Cart/ProductCardInCart/ProductCardInCart";
+import { authOptions } from "@/next-auth/authOptions";
 import { CartType } from "@/types/cart.types";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Cart() {
+  const session = await getServerSession(authOptions)
+  
+  if(!session) redirect('/login');
   const cartItems: CartType = await getUserCart();
   const isEmpty = cartItems.numOfCartItems === 0;
 
