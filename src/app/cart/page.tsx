@@ -119,7 +119,7 @@ export default async function Cart() {
                   <div className="flex justify-between text-gray-600 font-medium">
                     <span>Subtotal</span>
                     <span className="text-gray-900">
-                      {cartItems.data.totalCartPrice.toLocaleString()} EGP
+                      {cartItems?.data?.totalCartPrice?.toLocaleString()} EGP
                     </span>
                   </div>
                   <div className="flex justify-between text-gray-600 font-medium">
