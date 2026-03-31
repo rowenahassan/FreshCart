@@ -4,7 +4,7 @@ import { OrdersType } from "@/types/order.types";
 import Link from "next/link";
 
 export default async function AllOrders() {
-  const orders: OrdersType = await getUserOrders()
+  const orders: OrdersType = (await getUserOrders() || []);
   
   return orders.length !== 0? (
     <div className="bg-linear-to-b from-gray-50 to-white min-h-screen py-8">
