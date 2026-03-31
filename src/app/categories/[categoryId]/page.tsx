@@ -123,7 +123,7 @@ export default async function CategoryDetails({
               </h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              {subCategories.data?.map((subCategory)=> (
+              {subCategories?.data?.map((subCategory)=> (
                 <SubcategoryCard key={subCategory._id} subCategory={subCategory} />
               ))}
             </div>

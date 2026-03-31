@@ -290,7 +290,7 @@ export default async function Products({
           </div>
         ) : (
           <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
-            {products.data.map((product) => (
+            {products?.data?.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
           </div>

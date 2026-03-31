@@ -51,7 +51,7 @@ export default async function Cart() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="space-y-4">
-              {cartItems.data?.products.map((product) => (
+              {cartItems?.data?.products?.map((product) => (
                 <ProductCardInCart
                   key={product.product._id}
                   product={product}

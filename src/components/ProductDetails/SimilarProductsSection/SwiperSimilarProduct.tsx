@@ -43,7 +43,7 @@ export default function SwiperSimilarProduct({
         modules={[Navigation]}
         className="mySwiper"
       >
-        {Products.map((item) => {
+        {Products?.map((item) => {
           return (
             <SwiperSlide key={item.id}>
               <ProductCard product={item} />

@@ -12,7 +12,7 @@ export default async function Products() {
       <div className="container mx-auto">
         <HeaderSection headerName="Featured" sectionName="Products" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {products.data.map((product) => (
+          {products?.data?.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
         </div>

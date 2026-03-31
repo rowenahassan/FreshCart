@@ -265,7 +265,7 @@ export default function OrderProductCard({ order }: { order: Order }) {
               Order Items
             </h4>
             <div className="space-y-4 max-h-65 overflow-y-auto pr-2">
-              {order.cartItems.map((item) => (
+              {order?.cartItems?.map((item) => (
                 <CartItemsCard key={item.product._id} product={item} />
               ))}
             </div>

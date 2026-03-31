@@ -420,7 +420,7 @@ export default function SearchResult({
           )}
 
           {/* Categories */}
-          {categories.map((cat) => {
+          {categories?.map((cat) => {
             const categoryName =
               categoriesRes?.find((c) => c._id === cat)?.name || cat;
 
@@ -453,7 +453,7 @@ export default function SearchResult({
           })}
 
           {/* Brands */}
-          {brands.map((brand) => {
+          {brands?.map((brand) => {
             const brandName =
               brandsRes?.find((b) => b._id === brand)?.name || brand;
 

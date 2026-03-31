@@ -595,7 +595,7 @@ export default function CheckoutForm({
             </div>
             <div className="p-5">
               <div className="space-y-3 max-h-56 overflow-y-auto mb-5 pr-1">
-                {cartItems.data.products.map((product) => (
+                {cartItems?.data?.products?.map((product) => (
                   <CheckoutProductCard
                     key={product.product._id}
                     product={product}

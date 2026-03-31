@@ -26,7 +26,7 @@ export default function WishlistProvider({
   const [wishlistItems, setWishlistItems] = useState<string[]>([]);
   const { data: session } = useSession();
 
-   function updateWishlist(items: string[]) {
+  function updateWishlist(items: string[]) {
     setWishlistItems(items);
     setNumOfWishlistItems(items.length);
   }
@@ -35,14 +35,12 @@ export default function WishlistProvider({
     if (session?.user) {
       getUserWishlist().then((data) => {
         if (data.status === "success") {
-          const items = data.data.map((item: ProductType) => item._id);
+          const items = data?.data?.map((item: ProductType) => item._id);
           updateWishlist(items);
         }
       });
     }
   }, [session]);
-
- 
 
   return (
     <WishlistContext.Provider

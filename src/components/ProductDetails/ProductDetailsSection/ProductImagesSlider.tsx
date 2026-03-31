@@ -30,7 +30,7 @@ export default function ProductImagesSlider({ images }: ProductImagesType) {
         modules={[Thumbs]}
         className="mb-4"
       >
-        {images.map((img) => (
+        {images?.map((img) => (
           <SwiperSlide key={img}>
             <div className="min-h-65 sm:min-h-80 md:min-h-60 lg:min-h-70">
               <Image
@@ -46,7 +46,7 @@ export default function ProductImagesSlider({ images }: ProductImagesType) {
 
       {/* thumbnails */}
       <Swiper onSwiper={setThumbsSwiper} breakpoints={{0: {slidesPerView :4 , spaceBetween: 3}, 768: {slidesPerView: 2.2, spaceBetween: 1}, 1280: {slidesPerView: 3.2, spaceBetween: 3}}}>
-        {images.map((img, index) => (
+        {images?.map((img, index) => (
           <SwiperSlide
             className="w-23 hover:border-4 hover:border-[#337ab7] border-4 border-transparent transition-all"
             key={img}

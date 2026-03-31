@@ -15,7 +15,7 @@ export default async function Categories() {
           viewAllLink="View All Categories"
         />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {categories.data.map((category) => (
+          {categories?.data?.map((category) => (
               <CategoryCard key={category._id} category={category} />
           ))}
         </div>
